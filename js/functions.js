@@ -1,19 +1,17 @@
-//save to storage
+/* eslint-disable no-unused-vars */
+// save to storage
 const saveBooks = (books) => {
-  localStorage.setItem("books", JSON.stringify(books));
+  localStorage.setItem('books', JSON.stringify(books));
 };
 
-//get to storage
+// get to storage
 const getBooks = () => {
-  const booksJson = JSON.parse(localStorage.getItem("books"));
+  const booksJson = JSON.parse(localStorage.getItem('books'));
 
   if (booksJson) {
     return booksJson;
-  } else {
-    return [];
   }
+  return [];
 };
 
-const createElement = (tagName, className = null) => {
-  return document.createElement(tagName, className);
-};
+const createElement = (tagName, className = null) => document.createElement(tagName, className);

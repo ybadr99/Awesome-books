@@ -1,7 +1,9 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-undef */
 const books = getBooks();
 
-const containerEl = document.querySelector(".container");
-const form = document.querySelector("#form");
+const containerEl = document.querySelector('.container');
+const form = document.querySelector('#form');
 
 // book class
 class Book {
@@ -9,8 +11,8 @@ class Book {
   static add(title, author) {
     books.push({
       id: Date.now().toString(),
-      title: title ? "" : "no title",
-      author: author ? "" : "no author",
+      title: title || 'no title',
+      author: author || 'no author',
     });
   }
 
@@ -24,22 +26,22 @@ class Book {
   }
 }
 
-//creating book dom element
+// creating book dom element
 const generateBookEl = (book) => {
-  const bookEl = createElement("div", "book");
+  const bookEl = createElement('div', 'book');
 
-  const titleEl = createElement("p", "title");
+  const titleEl = createElement('p', 'title');
   titleEl.textContent = book.title;
-  const authorEl = createElement("p", "author");
+  const authorEl = createElement('p', 'author');
   authorEl.textContent = book.author;
-  const btn = document.createElement("button");
-  btn.textContent = "remove";
+  const btn = document.createElement('button');
+  btn.textContent = 'remove';
   btn.onclick = () => {
     Book.remove(book.id);
     saveBooks(books);
     renderBooks();
   };
-  const hr = createElement("hr");
+  const hr = createElement('hr');
 
   bookEl.appendChild(titleEl);
   bookEl.appendChild(authorEl);
@@ -50,7 +52,7 @@ const generateBookEl = (book) => {
 };
 
 const renderBooks = () => {
-  containerEl.innerHTML = "";
+  containerEl.innerHTML = '';
   books.forEach((b) => {
     containerEl.append(generateBookEl(b));
   });
@@ -58,10 +60,10 @@ const renderBooks = () => {
 
 renderBooks();
 
-form.addEventListener("submit", function (e) {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const title = document.querySelector(".title").value;
-  const author = document.querySelector(".author").value;
+  const title = document.querySelector('.title').value;
+  const author = document.querySelector('.author').value;
 
   Book.add(title, author);
   saveBooks(books);
