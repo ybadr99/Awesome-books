@@ -4,37 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./js/functions.js"></script>
     <script src="./js/script.js" defer type="module"></script>
     <title>Awesome books</title>
   </head>
   <body>
     <h1>Awesome books</h1>
-    <div class="container">
-      <div class="book">
-        <p>title</p>
-        <p>author</p>
-        <button>remove</button>
-        <hr />
-      </div>
-
-      <div class="book">
-        <p>book 2</p>
-        <p>mahmoud</p>
-        <button>remove</button>
-        <hr />
-      </div>
-    </div>
+    <div class="container"></div>
 
     <form id="form" action="#">
       <div>
-        <input type="text" placeholder="title" />
+        <input type="text" class="title" placeholder="title" />
       </div>
       <br />
       <div>
-        <input type="text" placeholder="author" />
+        <input type="text" class="author" placeholder="author" />
       </div>
       <br />
-      <button>submit</button>
+      <input type="submit" name="submit" value="submit" />
     </form>
   </body>
 </html>
