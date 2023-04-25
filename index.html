@@ -4,9 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./js/functions.js"></script>
+    <script src="./js/script.js" defer type="module"></script>
     <title>Awesome books</title>
   </head>
   <body>
     <h1>Awesome books</h1>
+    <div class="container"></div>
+
+    <form id="form" action="#">
+      <div>
+        <input type="text" class="title" placeholder="title" />
+      </div>
+      <br />
+      <div>
+        <input type="text" class="author" placeholder="author" />
+      </div>
+      <br />
+      <input type="submit" name="submit" value="submit" />
+    </form>
   </body>
 </html>
