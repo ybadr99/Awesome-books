@@ -4,25 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
     <script src="./js/functions.js"></script>
     <script src="./js/script.js" defer type="module"></script>
     <title>Awesome books</title>
   </head>
   <body>
-    <h1>Awesome books</h1>
-    <div class="container"></div>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Awesome Books</div>
 
-    <form id="form" action="#">
-      <div>
-        <input type="text" class="title" placeholder="title" />
+          <ul class="navbar">
+            <li id="section-list">List</li>
+            <li id="section-form">Add new</li>
+            <li id="section-contact">Contact</li>
+          </ul>
+        </nav>
       </div>
-      <br />
-      <div>
-        <input type="text" class="author" placeholder="author" />
+    </header>
+
+    <section class="section-list">
+      <h1>Awesome books</h1>
+      <div class="container">
+        <div class="books"></div>
       </div>
-      <br />
-      <input type="submit" name="submit" value="submit" />
-    </form>
+    </section>
+
+    <section class="section-form">
+      <div class="container">
+        <h2>Add a new book</h2>
+
+        <form id="form" action="#">
+          <div class="form-control">
+            <input type="text" id="title" placeholder="title" />
+          </div>
+          <div class="form-control">
+            <input type="text" id="author" placeholder="author" />
+          </div>
+          <button>Add</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section-contact">
+      <div class="container">
+        <h2>Contact</h2>
+      </div>
+    </section>
   </body>
 </html>
