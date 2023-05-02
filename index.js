@@ -47,7 +47,11 @@ navLinks.forEach((li) => {
 showSection('section-list');
 
 // Date
-const now = new Date();
-const date = DateTime.now().toLocaleString(DateTime.DATE_FULL);
-const time = now.toLocaleTimeString();
-document.querySelector('.date').textContent = `${date} ${time}`;
+const displayDate = () => {
+  const now = new Date();
+  const date = DateTime.now().toLocaleString(DateTime.DATE_FULL);
+  const time = now.toLocaleTimeString();
+  document.querySelector('.date').textContent = `${date} ${time}`;
+};
+
+setInterval(displayDate, 10);
