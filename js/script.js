@@ -2,8 +2,12 @@
 /* eslint-disable no-undef */
 const books = getBooks();
 
-const containerEl = document.querySelector('.container');
-const form = document.querySelector('#form');
+const containerEl = document.querySelector(".books");
+const form = document.querySelector("#form");
+const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const navLinks = document.querySelectorAll("li");
+const sections = document.querySelectorAll("section");
 
 // book class
 class Book {
@@ -11,8 +15,8 @@ class Book {
   static add(title, author) {
     books.push({
       id: Date.now().toString(),
-      title: title || 'no title',
-      author: author || 'no author',
+      title: title || "no title",
+      author: author || "no author",
     });
   }
 
@@ -28,31 +32,33 @@ class Book {
 
 // creating book dom element
 const generateBookEl = (book) => {
-  const bookEl = createElement('div', 'book');
+  const bookEl = createElement("div", "book");
 
-  const titleEl = createElement('p', 'title');
+  const content = createElement("div", "content");
+
+  const titleEl = createElement("p", "title");
   titleEl.textContent = book.title;
-  const authorEl = createElement('p', 'author');
-  authorEl.textContent = book.author;
-  const btn = document.createElement('button');
-  btn.textContent = 'remove';
+  const authorEl = createElement("p", "author");
+  authorEl.textContent = `by ${book.author}`;
+  content.append(titleEl);
+  content.append(authorEl);
+
+  const btn = document.createElement("button");
+  btn.textContent = "Remove";
   btn.onclick = () => {
     Book.remove(book.id);
     saveBooks(books);
     renderBooks();
   };
-  const hr = createElement('hr');
 
-  bookEl.appendChild(titleEl);
-  bookEl.appendChild(authorEl);
+  bookEl.appendChild(content);
   bookEl.appendChild(btn);
-  bookEl.appendChild(hr);
 
   return bookEl;
 };
 
 const renderBooks = () => {
-  containerEl.innerHTML = '';
+  containerEl.innerHTML = "";
   books.forEach((b) => {
     containerEl.append(generateBookEl(b));
   });
@@ -60,12 +66,42 @@ const renderBooks = () => {
 
 renderBooks();
 
-form.addEventListener('submit', (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const title = document.querySelector('.title').value;
-  const author = document.querySelector('.author').value;
 
-  Book.add(title, author);
+  Book.add(title.value, author.value);
   saveBooks(books);
+  title.textContent = "";
+  author.textContent = "";
   renderBooks();
+  showSection("section-list");
 });
+
+const showSection = (id) => {
+  console.log(id);
+
+  navLinks.forEach((li) => {
+    if (id === li.id) {
+      li.classList.add("active");
+    } else {
+      li.classList.remove("active");
+    }
+  });
+  // console.log(sections);
+
+  sections.forEach((sec) => {
+    if (sec.classList.value !== id) {
+      sec.style.setProperty("display", "none");
+    } else {
+      sec.style.setProperty("display", "block");
+    }
+  });
+};
+
+navLinks.forEach((li) => {
+  li.addEventListener("click", () => {
+    showSection(li.id);
+  });
+});
+
+showSection("section-list");
