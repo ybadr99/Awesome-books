@@ -1,4 +1,4 @@
-import { DateTime } from 'luxon';
+import { DateTime } from './modules/luxon.js';
 import Book from './modules/book.js';
 
 const form = document.querySelector('#form');
