@@ -1,5 +1,6 @@
 import { DateTime } from './modules/luxon.js';
 import Book from './modules/book.js';
+import renderBooks from './modules/UI.js';
 
 const form = document.querySelector('#form');
 const title = document.querySelector('#title');
@@ -25,7 +26,7 @@ const showSection = (id) => {
   });
 };
 
-Book.renderBooks();
+renderBooks();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -33,7 +34,7 @@ form.addEventListener('submit', (e) => {
   Book.add(title.value, author.value);
   title.value = '';
   author.value = '';
-  Book.renderBooks();
+  renderBooks();
   showSection('section-list');
 });
 
@@ -45,7 +46,7 @@ navLinks.forEach((li) => {
 
 showSection('section-list');
 
-// Sate
+// Date
 const now = new Date();
 const date = DateTime.now().toLocaleString(DateTime.DATE_FULL);
 const time = now.toLocaleTimeString();
