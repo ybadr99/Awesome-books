@@ -10,9 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css" />
-    <script src="./js/functions.js"></script>
-    <script src="./js/script.js" defer type="module"></script>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js" type="module"></script>
     <title>Awesome books</title>
   </head>
   <body>
@@ -30,6 +29,11 @@
       </div>
     </header>
 
+    <div class="container">
+
+      <p class="date" ></p>
+    </div>
+
     <section class="section-list">
       <h1>Awesome books</h1>
       <div class="container">
@@ -43,10 +47,10 @@
 
         <form id="form" action="#">
           <div class="form-control">
-            <input type="text" id="title" placeholder="title" />
+            <input type="text" required id="title" placeholder="title" />
           </div>
           <div class="form-control">
-            <input type="text" id="author" placeholder="author" />
+            <input type="text" required id="author" placeholder="author" />
           </div>
           <button>Add</button>
         </form>
@@ -55,8 +59,23 @@
 
     <section class="section-contact">
       <div class="container">
-        <h2>Contact</h2>
+        <h2>Contact information</h2>
+        <p>
+          Do you have any questions or you just want to say "Hello" <br>
+        You can reach out to us!
+        </p>
+       <ul>
+        <li>Our e-mail: mail@mail.com</li>
+        <li>Our phone number: 001145553388</li>
+        <li>Our Address: Streetname 22, 5000 city, country</li>
+      </ul>
       </div>
     </section>
+
+    <div class="container footer">
+      <footer> 
+        Copyrights...
+      </footer>
+    </div>
   </body>
 </html>
