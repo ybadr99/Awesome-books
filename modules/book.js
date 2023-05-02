@@ -50,7 +50,6 @@ export default class Book {
     const btn = this.createElement('button');
     btn.textContent = 'Remove';
     btn.onclick = () => {
-      console.log('remove');
       Book.remove(book.id);
       this.renderBooks();
     };
